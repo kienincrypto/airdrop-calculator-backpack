@@ -174,6 +174,7 @@ document.getElementById("remainingDays").innerText =
 
 let progressPercent = Math.min(100, (passedDays / totalDays) * 100);
 document.getElementById("progressFill").style.width = progressPercent + "%";
+document.getElementById("dayPercent").innerText = progressPercent.toFixed(1) + "%";
 
 /* ---------------- POINT CALCULATION (DEMO) ---------------- */
 
@@ -194,5 +195,6 @@ function calculatePoints() {
 
 </body>
 </html>
+
 
 
