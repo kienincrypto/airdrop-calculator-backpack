@@ -1,109 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Airdrop Calculator</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d12;
-      color: white;
-      text-align: center;
-    }
-    .top-bar {
-      background: #00e589;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-    }
-    .top-bar a {
-      background: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      margin-top: 40px;
-    }
-    .card {
-      background: #1b1b22;
-      width: 380px;
-      margin: 20px auto;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: left;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: none;
-      background: #2a2a33;
-      color: white;
-      font-size: 16px;
-    }
-    .value-box {
-      font-size: 34px;
-      color: #00e589;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Của Bạn</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #1a73e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #1a73e8;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #1a73e8, #4a90e2);
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .contact-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a73e8;
+            color: white;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 500px) {
+            .hero h1 { font-size: 28px; }
+            nav ul { gap: 15px; }
+            nav a { font-size: 16px; }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="top-bar">
-    <span>New in Backpack?</span>
-    <a href="https://backpack.exchange/signup?referral=kienincrypto">Create Account</a>
-  </div>
 
-  <h1>Airdrop Calculator</h1>
-  <div class="container">
-    <div class="card">
-      <h2>Season 4</h2>
-      <p>20 Nov 2025 → 28 Jan 2026 • 423.77M points</p>
+<header>Website Demo Đã Gộp Hoàn Chỉnh</header>
 
-      <label>Your Points</label>
-      <input type="number" id="points" value="60000" />
+<nav>
+    <ul>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#products">Sản phẩm</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+    </ul>
+</nav>
 
-      <label>FDV</label>
-      <div style="display:flex; gap:10px;">
-        <input type="number" id="fdv" value="1" />
-        <select id="fdvUnit">
-          <option>Billion</option>
-          <option>Million</option>
-        </select>
-      </div>
+<section class="hero">
+    <h1>Chào mừng bạn đến với Website</h1>
+    <p>Trang web đã được gộp code đầy đủ – chỉ cần triển khai trên Vercel.</p>
+</section>
 
-      <label>Airdrop %</label>
-      <input type="range" id="percent" min="1" max="50" value="25" />
-      <span id="percentText">25%</span>
+<section id="about">
+    <h2>Giới thiệu</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        Đây là phần giới thiệu về trang web hoặc dịch vụ của bạn.
+        Bạn có thể thay đổi nội dung, hình ảnh, sản phẩm… sao cho phù hợp.
+    </p>
+</section>
+
+<section id="products">
+    <h2>Sản phẩm</h2>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Product 1">
+            <h3>Sản phẩm 1</h3>
+            <p>Mô tả ngắn về sản phẩm.</p>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Product 2">
+            <h3>Sản phẩm 2</h3>
+            <p>Mô tả ngắn về sản phẩm.</p>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Product 3">
+            <h3>Sản phẩm 3</h3>
+            <p>Mô tả ngắn về sản phẩm.</p>
+        </div>
+
     </div>
+</section>
 
-    <div class="card">
-      <h3>1 Point = $0.59</h3>
-      <p>The estimated airdrop is:</p>
-      <div class="value-box" id="result">$35,396.60</div>
+<section id="contact">
+    <h2>Liên hệ</h2>
+
+    <div class="contact-box">
+        <p><b>Email:</b> yourname@example.com</p>
+        <p><b>Facebook:</b> fb.com/yourpage</p>
+        <p><b>Telegram:</b> @yourtelegram</p>
     </div>
-  </div>
+</section>
 
-  <script>
-    function update() {
-      const points = parseFloat(document.getElementById('points').value) || 0;
-      const percent = parseFloat(document.getElementById('percent').value) || 1;
-      const result = points * 0.59;
-      document.getElementById('percentText').innerText = percent + '%';
-      document.getElementById('result').innerText = '$' + result.toLocaleString();
-    }
+<footer>
+    © 2025 - Trang web demo gộp code hoàn chỉnh
+</footer>
 
-    document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
-    update();
-  </script>
 </body>
 </html>
