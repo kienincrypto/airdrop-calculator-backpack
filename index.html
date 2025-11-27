@@ -141,6 +141,57 @@
         
     </div>
 
+    <!-- AIRDROP CALCULATOR -->
+<div class="section-title">Airdrop Estimator</div>
+<div class="season-box">
+
+    <!-- Biến 1 -->
+    <label style="font-size:18px; font-weight:bold;">Your Points</label>
+    <div style="display:flex; align-items:center; margin-top:6px;">
+        <input 
+            type="number" 
+            id="varPoints" 
+            min="0" max="1000000"
+            placeholder="0 - 1,000,000"
+            style="flex:1; margin-right:10px;"
+        />
+    </div>
+
+    <!-- Biến 2 -->
+    <label style="font-size:18px; font-weight:bold; margin-top:15px;">FDV</label>
+    <div style="display:flex; align-items:center; margin-top:6px;">
+        <input 
+            type="number" 
+            id="varFDV" 
+            min="0" max="100" step="0.01"
+            placeholder="0 - 100"
+            style="flex:1; margin-right:10px;"
+        />
+        <span style="font-size:16px;">Billion</span>
+    </div>
+
+    <!-- Biến 3 -->
+    <label style="font-size:18px; font-weight:bold; margin-top:15px;">Percent Airdrop</label>
+    <div style="display:flex; align-items:center; margin-top:6px;">
+        <input 
+            type="number" 
+            id="varPercent" 
+            min="0" max="100" step="0.01"
+            placeholder="0 - 100"
+            style="flex:1; margin-right:10px;"
+        />
+        <span style="font-size:16px;">%</span>
+    </div>
+
+    <button class="btn-primary" onclick="calculateAirdrop()" style="margin-top:20px;">
+        Calculate Airdrop
+    </button>
+
+    <div id="airdropResult1" style="margin-top:15px; font-size:18px; font-weight:bold;"></div>
+    <div id="airdropResult2" style="margin-top:8px; font-size:18px; font-weight:bold;"></div>
+</div>
+
+
     <!-- FORM -->
     <div class="section-title">Check Your Points</div>
 
@@ -191,10 +242,39 @@ function calculatePoints() {
     document.getElementById("result").innerText =
         `Wallet ${wallet} has approximately ${points.toLocaleString()} points.`;
 }
+
+/* ---------------- AIRDROP CALCULATION ---------------- */
+
+function calculateAirdrop() {
+    const points = Number(document.getElementById("varPoints").value);
+    const fdv = Number(document.getElementById("varFDV").value);
+    const percent = Number(document.getElementById("varPercent").value);
+
+    // Validate input
+    if (isNaN(points) || isNaN(fdv) || isNaN(percent)) {
+        document.getElementById("airdropResult1").innerText = "Please fill in all values.";
+        document.getElementById("airdropResult2").innerText = "";
+        return;
+    }
+
+    // Kết quả 1: 1 point = FDV * Percent / 423.77M
+    const valuePerPoint = (fdv * 1_000_000_000 * (percent / 100)) / 423_770_000;
+
+    // Kết quả 2: Airdrop = Value per point * Your points
+    const yourAirdrop = valuePerPoint * points;
+
+    document.getElementById("airdropResult1").innerText =
+        `1 Point = $${valuePerPoint.toFixed(6)}`;
+
+    document.getElementById("airdropResult2").innerText =
+        `Your Airdrop = $${yourAirdrop.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
