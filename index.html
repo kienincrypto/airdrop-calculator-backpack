@@ -1,195 +1,191 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Của Bạn</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f8f9fa;
-            color: #333;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Backpack Points Tool</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #0d0d0d;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
 
-        header {
-            background: #1a73e8;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-        }
+    .container {
+        width: 95%;
+        max-width: 600px;
+        background: #1a1a1a;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
 
-        nav {
-            background: #ffffff;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-        }
+    h1 {
+        margin-top: 0;
+        font-size: 26px;
+        text-align: center;
+        font-weight: bold;
+    }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+    .btn-primary {
+        display: block;
+        width: 100%;
+        background: #ffb300;
+        color: black;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 20px;
+        text-decoration: none;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            font-weight: 600;
-        }
+    .section-title {
+        font-size: 22px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
 
-        nav a:hover {
-            color: #1a73e8;
-        }
+    .season-box {
+        background: #262626;
+        padding: 18px;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
 
-        .hero {
-            background: linear-gradient(to right, #1a73e8, #4a90e2);
-            color: white;
-            padding: 70px 20px;
-            text-align: center;
-        }
+    .season-title {
+        font-size: 26px;
+        font-weight: 900;
+    }
 
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+    .season-date {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-bottom: 5px;
+    }
 
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
+    .season-remaining {
+        font-size: 20px;
+        margin: 8px 0;
+        color: #ffb300;
+        font-weight: bold;
+    }
 
-        section {
-            padding: 50px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+    .progress-bar {
+        width: 100%;
+        background: #444;
+        border-radius: 10px;
+        height: 14px;
+        margin-top: 8px;
+    }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
+    .progress {
+        height: 14px;
+        background: #ffb300;
+        border-radius: 10px;
+        width: 0%;
+    }
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        margin-top: 10px;
+        background: #333;
+        color: white;
+        font-size: 16px;
+    }
 
-        .product {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .product img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .product h3 {
-            margin: 10px 0;
-            font-size: 20px;
-        }
-
-        .contact-box {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #1a73e8;
-            color: white;
-            margin-top: 40px;
-        }
-
-        @media(max-width: 500px) {
-            .hero h1 { font-size: 28px; }
-            nav ul { gap: 15px; }
-            nav a { font-size: 16px; }
-        }
-    </style>
+    .contact {
+        margin-top: 30px;
+        opacity: 0.8;
+        text-align: center;
+    }
+</style>
 </head>
-
 <body>
 
-<header>Website Demo Đã Gộp Hoàn Chỉnh</header>
+<div class="container">
 
-<nav>
-    <ul>
-        <li><a href="#about">Giới thiệu</a></li>
-        <li><a href="#products">Sản phẩm</a></li>
-        <li><a href="#contact">Liên hệ</a></li>
-    </ul>
-</nav>
+    <h1>Backpack Points Checker</h1>
 
-<section class="hero">
-    <h1>Chào mừng bạn đến với Website</h1>
-    <p>Trang web đã được gộp code đầy đủ – chỉ cần triển khai trên Vercel.</p>
-</section>
+    <a class="btn-primary" href="https://backpack.exchange/signup?referral=kienincrypto" target="_blank">
+        Create Account
+    </a>
 
-<section id="about">
-    <h2>Giới thiệu</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-        Đây là phần giới thiệu về trang web hoặc dịch vụ của bạn.
-        Bạn có thể thay đổi nội dung, hình ảnh, sản phẩm… sao cho phù hợp.
-    </p>
-</section>
+    <!-- SEASON 4 -->
+    <div class="section-title">Season Status</div>
+    <div class="season-box">
+        <div class="season-title">Season 4</div>
+        <div class="season-date">20 Nov 2025 → 28 Jan 2026 • 423.77M points</div>
 
-<section id="products">
-    <h2>Sản phẩm</h2>
+        <div id="remainingDays" class="season-remaining">Loading...</div>
 
-    <div class="products">
-
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 1">
-            <h3>Sản phẩm 1</h3>
-            <p>Mô tả ngắn về sản phẩm.</p>
+        <div class="progress-bar">
+            <div id="progressFill" class="progress"></div>
         </div>
-
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 2">
-            <h3>Sản phẩm 2</h3>
-            <p>Mô tả ngắn về sản phẩm.</p>
-        </div>
-
-        <div class="product">
-            <img src="https://via.placeholder.com/300" alt="Product 3">
-            <h3>Sản phẩm 3</h3>
-            <p>Mô tả ngắn về sản phẩm.</p>
-        </div>
-
     </div>
-</section>
 
-<section id="contact">
-    <h2>Liên hệ</h2>
+    <!-- FORM -->
+    <div class="section-title">Check Your Points</div>
 
-    <div class="contact-box">
-        <p><b>Email:</b> yourname@example.com</p>
-        <p><b>Facebook:</b> fb.com/yourpage</p>
-        <p><b>Telegram:</b> @yourtelegram</p>
+    <input type="text" id="walletInput" placeholder="Enter your wallet address..." />
+
+    <button class="btn-primary" onclick="calculatePoints()">Check Now</button>
+
+    <div id="result" style="margin-top:20px; font-size:18px; font-weight:bold;"></div>
+
+    <div class="contact">
+        Contact X: <b>@KienInCrypto</b>
     </div>
-</section>
 
-<footer>
-    © 2025 - Trang web demo gộp code hoàn chỉnh
-</footer>
+</div>
+
+<script>
+/* ---------------- SEASON COUNTDOWN + PROGRESS ---------------- */
+
+const start = new Date("2025-11-20");
+const end = new Date("2026-01-28");
+const today = new Date();
+
+const totalDays = (end - start) / (1000 * 60 * 60 * 24);
+const passedDays = (today - start) / (1000 * 60 * 60 * 24);
+const remainingDays = Math.max(0, Math.ceil(totalDays - passedDays));
+
+document.getElementById("remainingDays").innerText =
+    remainingDays > 0
+    ? `${remainingDays} days remaining`
+    : "Season ended";
+
+let progressPercent = Math.min(100, (passedDays / totalDays) * 100);
+document.getElementById("progressFill").style.width = progressPercent + "%";
+
+/* ---------------- POINT CALCULATION (DEMO) ---------------- */
+
+function calculatePoints() {
+    const wallet = document.getElementById("walletInput").value.trim();
+    if (!wallet) {
+        document.getElementById("result").innerText = "Please enter a wallet!";
+        return;
+    }
+
+    // demo formula
+    let points = wallet.length * 1234;
+
+    document.getElementById("result").innerText =
+        `Wallet ${wallet} has approximately ${points.toLocaleString()} points.`;
+}
+</script>
 
 </body>
 </html>
